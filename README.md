@@ -1,4 +1,6 @@
-## Cloud Dj powered by Sonic Pi Introduction
+## Cloud Dj powered by Sonic Pi
+
+![](images/clouddj.png)
 
 In this guide, we'll show you a few simple steps to launch an Oracle Linux instance on Oracle Cloud Infrastructure, and then proceed to launch a Cloud Dj powered by [Sonic Pi](https://sonic-pi.net/) from your Cloud Linux instance. The path that we will take is as follows:
 
