@@ -4,7 +4,7 @@ First we follow these steps to launch your Oracle Linux instance:
 
  - Prepare a key pair
  - Choose a compartment for your resources
- - Prepare a cloud network
+ - Prepare a Virtual Cloud Network
  - Launch an Oracle Linux instance
  - Connect to the Oracle Linux instance
 
@@ -43,7 +43,7 @@ If you don't already have a compartment, create one to start organizing your com
 
 ![alt text](images/oracle-cloud-infrastructure_create-compartment.png "Oracle Cloud Infrastructure - Create Compartment")
 
-### Prepare a cloud network
+### Prepare a Virtual Cloud Network
 
 Next you need to create a virtual cloud network (VCN) to launch the Oracle Linux instance into. In the example below, we choose the option "CREATE VIRTUAL CLOUD NETWORK PLUS RELATED RESOURCES" with the default values when creating a VCN `ovm-network` which is placed within the compartment `ovm-demo`.
 
@@ -51,9 +51,11 @@ Next you need to create a virtual cloud network (VCN) to launch the Oracle Linux
 
 ### Create network Ingress Rule
 
-Next you need to create a network Ingress Rule to to allow inbound requests from the public internet to reach your Fn server. In the example below, we add a stateful ingress rule to the Default Security List for our `ovm-network` VCN. Specify the source CIDR as `0.0.0.0/0`, the protocol as `TCP`, & the destination port range as `8080`.
+Next you need to create a network Ingress Rule to to allow inbound requests from the public internet to reach your Cloud Dj server. In the example below, we add a stateful ingress rule to the Default Security List for our `ovm-network` VCN. Specify the source CIDR as `0.0.0.0/0`, the protocol as `TCP`, & the destination port range as `8001`.
 
 ![alt text](images/oracle-cloud-infrastructure_create-secrule.png "Oracle Cloud Infrastructure - Create VCN")
+
+**Repeat this step for ports 8002 and 4558**
 
 ### Launch an Oracle Linux instance
 
@@ -82,16 +84,11 @@ You now click the instance name "Oracle-Linux-7.4-vm1" to see the details of the
 Now you can connect to the newly provisioned Oracle Linux instance by using an SSH client to access its public IP address.
 
 ```
-$ ssh –i <private_key> <username>@<public-ip-address>
-$ <private_key> is the full path and name of the file that contains the private key associated with the instance.
-$ <username> is the default name for the instance. For Oracle Linux instance, the default user name is opc.
-$ <public-ip-address> is your instance IP address that you retrieved from the Oracle Cloud Infrastructure console in the previous step.
-$ ssh -i ~/.ssh/mykey opc@129.213.18.44
-$ The authenticity of host '129.213.18.44 (129.213.18.44)' can't be established.
-$ ECDSA key fingerprint is SHA256:zs59184625kJ4W1gYwikSXna7JfoLrTAaDmdbp6lThA.
-$ ECDSA key fingerprint is MD5:c2:2a:06:e8:58:16:91:e0:8d:d0:50:62:bc:df:fb:e6.
-$ Are you sure you want to continue connecting (yes/no)? yes
-$ Warning: Permanently added '129.213.18.44' (ECDSA) to the list of known hosts.
+ssh -i ~/.ssh/mykey opc@129.213.18.44
+ssh –i <private_key> <username>@<public-ip-address>
 ```
 
 _When you’re logged in as the default user `opc`, you can use the sudo command to run administrative tasks._
+
+###	Next Steps
+Go back to the [main guide](README.md) to continue your setup.
