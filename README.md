@@ -1,4 +1,4 @@
-## Cloud Dj powered by Sonic Pi
+## Cloud Dj with Sonic Pi
 
 ![](images/clouddj.png)
 
