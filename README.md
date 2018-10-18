@@ -26,7 +26,7 @@ Once you have reconnected to the instance, run the following command to install 
 
 ### Run Cloud Dj from Docker
 
-	docker run --rm -p 8001:8001 -p 8002:8002 -p 4558:4558 sdaschner/sonicpi-clouddj:build-2
+	docker run --rm -p 8001:8001 -p 8002:8002 -p 4558:4558 sdaschner/sonicpi-clouddj:build-4
 
 Notice we are specifying the ingress ports we configured on our Virtual Cloud Network.
 
@@ -36,4 +36,4 @@ Now you can access your Cloud Dj from the web at http://[virtual-server-public-i
 If you need to stop your docker instance you must logout from your shell session. Find the docker Id
 
 	docker ps
-	docker kill
+	docker kill [CONTAINER ID]
